@@ -18,11 +18,11 @@ class CommercesTableViewController: UITableViewController {
 
 		setupView()
 		
-		ApiClient.commerces(success: {
-			
-		}) { (error) in
-			
-		}
+        ApiClient.commerces(success: { (commerces) in
+            print(commerces)
+        }) { (error) in
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {

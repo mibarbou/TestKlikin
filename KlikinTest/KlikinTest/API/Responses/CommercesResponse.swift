@@ -24,4 +24,16 @@ struct CommercesResponse: Gloss.Decodable {
         
         self.list = commerces
     }
+    
+    
+    func getCommerces() -> [Commerce] {
+        var commerces = [Commerce]()
+        
+        if let commercesList = self.list {
+            commerces = commercesList.map{ $0.getCommerce() }
+        }
+        
+        return commerces
+    }
+    
 }

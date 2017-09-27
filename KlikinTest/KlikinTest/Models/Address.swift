@@ -9,6 +9,8 @@
 import Foundation
 
 struct Address {
-    
-    
+    let zip:        String
+    let city:       String
+    let country:    String
+    let street:     String
 }

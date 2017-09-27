@@ -26,4 +26,16 @@ struct AddressResponse: Gloss.Decodable {
         self.country = "country" <~~ json
         self.street = "street" <~~ json
 	}
+    
+    func getAddress() -> Address {
+        let zip = self.zip ?? ""
+        let city = self.city ?? ""
+        let country = self.country ?? ""
+        let street = self.street ?? ""
+        
+        return Address(zip: zip,
+                       city: city,
+                       country: country,
+                       street: street)
+    }
 }

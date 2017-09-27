@@ -19,4 +19,14 @@ struct ContactResponse: Gloss.Decodable {
         self.email = "email" <~~ json
         self.web = "web" <~~ json
 	}
+    
+    func getContact() -> Contact {
+        let phone = self.phone ?? ""
+        let email = self.email ?? ""
+        let webURL = URL(string: self.web ?? "")
+        
+        return Contact(phone: phone,
+                       email: email,
+                       web: webURL)
+    }
 }

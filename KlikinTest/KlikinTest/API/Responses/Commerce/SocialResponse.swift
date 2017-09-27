@@ -15,4 +15,11 @@ struct SocialResponse: Gloss.Decodable {
 	init?(json: JSON) {
         self.facebook = "facebook" <~~ json
 	}
+    
+    func getSocial() -> Social {
+        
+        let facebookURL = URL(string: self.facebook ?? "")
+        
+        return Social(facebook: facebookURL)
+    }
 }

@@ -87,16 +87,15 @@ class ApiClient {
 //MARK: Public methods
 extension ApiClient {
 	
-	public static func commerces(success: @escaping () -> (), fail: @escaping (ApiError) -> ()) {
+	public static func commerces(success: @escaping ([Commerce]) -> (), fail: @escaping (ApiError) -> ()) {
 		
 		self.request(endpoint: .commerces, success: { (response) in
             
-            if let commercesResponse = CommercesResponse(jsonArray: response as [AnyObject]),
-                let commercesResp = commercesResponse.list {
-                print(commercesResp)
+            if let commercesResponse = CommercesResponse(jsonArray: response as [AnyObject]) {
+                let commerces = commercesResponse.getCommerces()
+                success(commerces)
             }
             
-			success()
 		}) { (error) in
 			fail(error)
 		}

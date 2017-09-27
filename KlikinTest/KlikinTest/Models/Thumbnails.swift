@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Thumbnail {
+struct Thumbnails {
     
-    
+    let small:      URL?
+    let medium:     URL?
+    let large:      URL?
 }

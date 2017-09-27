@@ -10,5 +10,7 @@ import Foundation
 
 struct Logo {
     
-    
+    let original:       URL?
+    let format:         String
+    let thumbnails:     Thumbnails?
 }

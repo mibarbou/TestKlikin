@@ -18,6 +18,21 @@ struct LogoResponse: Gloss.Decodable {
         self.url = "url" <~~ json
         self.format = "format" <~~ json
         self.thumbnails = "thumbnails" <~~ json
-
 	}
+    
+    
+    func getLogo() -> Logo {
+        
+        let originalURL = URL(string: self.url ?? "")
+        let format = self.format ?? ""
+        
+        var thumbnails: Thumbnails?
+        if let thumbnailsResponse = self.thumbnails {
+            thumbnails = thumbnailsResponse.getThumbnails()
+        }
+        
+        return Logo(original: originalURL,
+                    format: format,
+                    thumbnails: thumbnails)
+    }
 }

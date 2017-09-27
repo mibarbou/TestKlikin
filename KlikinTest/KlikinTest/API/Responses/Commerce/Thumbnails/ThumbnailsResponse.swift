@@ -19,4 +19,15 @@ struct ThumbnailsResponse: Gloss.Decodable {
         self.medium = "medium" <~~ json
         self.large = "large" <~~ json
     }
+    
+    func getThumbnails() -> Thumbnails {
+        
+        let smallURL = URL(string: self.small ?? "")
+        let mediumURL = URL(string: self.medium ?? "")
+        let largeURL = URL(string: self.large ?? "")
+
+        return Thumbnails(small: smallURL,
+                          medium: mediumURL,
+                          large: largeURL)
+    }
 }

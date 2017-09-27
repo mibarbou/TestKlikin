@@ -10,5 +10,7 @@ import Foundation
 
 struct Contact {
     
-    
+    let phone:      String
+    let email:      String
+    let web:        URL?
 }
