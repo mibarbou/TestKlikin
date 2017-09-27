@@ -10,7 +10,20 @@ import Gloss
 
 struct AddressResponse: Gloss.Decodable {
 	
+    let zip:        String?
+    let city:       String?
+    let country:    String?
+    let street:     String?
+    
 	init?(json: JSON) {
-		
+        // some zip fields comes as Int, and others as String
+        if let zip: Int = "zip" <~~ json {
+            self.zip = String(zip)
+        } else {
+            self.zip = "zip" <~~ json
+        }
+        self.city = "city" <~~ json
+        self.country = "country" <~~ json
+        self.street = "street" <~~ json
 	}
 }

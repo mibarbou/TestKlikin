@@ -10,7 +10,18 @@ import Gloss
 
 struct CommercesResponse: Gloss.Decodable {
 	
-	init?(json: JSON) {
-		
-	}
+    let list:  [CommerceResponse]?
+    
+    init?(jsonArray: [AnyObject]) {
+        let jsonDictionary = ["list" : jsonArray]
+        self.init(json: jsonDictionary)
+    }
+        
+    init?(json: JSON) {
+        guard let commerces: [CommerceResponse] = "list" <~~ json else {
+            return nil
+        }
+        
+        self.list = commerces
+    }
 }

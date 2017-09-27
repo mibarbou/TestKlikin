@@ -16,6 +16,11 @@ struct CommerceResponse: Gloss.Decodable {
 	let category:				String?
 	let description:			String?
 	let shortDescription:		String?
+    let address:                AddressResponse?
+    let contact:                ContactResponse?
+    let location:               [Double]?
+    let photos:                 [PhotoResponse]?
+    let features:               [String]?
 	
 	init?(json: JSON) {
 		
@@ -29,6 +34,11 @@ struct CommerceResponse: Gloss.Decodable {
 		self.category = "category" <~~ json
 		self.description = "description" <~~ json
 		self.shortDescription = "shortDescription" <~~ json
+        self.address = "address" <~~ json
+        self.contact = "contact" <~~ json
+        self.location = "location" <~~ json
+        self.photos = "photos" <~~ json
+        self.features = "features" <~~ json
 
 	}
 }

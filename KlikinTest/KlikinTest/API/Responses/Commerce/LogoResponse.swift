@@ -10,7 +10,14 @@ import Gloss
 
 struct LogoResponse: Gloss.Decodable {
 	
+    let url:            String?
+    let format:         String?
+    let thumbnails:     ThumbnailsResponse?
+    
 	init?(json: JSON) {
-		
+        self.url = "url" <~~ json
+        self.format = "format" <~~ json
+        self.thumbnails = "thumbnails" <~~ json
+
 	}
 }

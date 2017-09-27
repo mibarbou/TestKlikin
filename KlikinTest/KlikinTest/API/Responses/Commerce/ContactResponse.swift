@@ -10,7 +10,13 @@ import Gloss
 
 struct ContactResponse: Gloss.Decodable {
 	
+    let phone:      String?
+    let email:      String?
+    let web:        String?
+    
 	init?(json: JSON) {
-		
+        self.phone = "phone" <~~ json
+        self.email = "email" <~~ json
+        self.web = "web" <~~ json
 	}
 }

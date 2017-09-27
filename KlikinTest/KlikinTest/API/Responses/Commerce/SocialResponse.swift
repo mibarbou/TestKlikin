@@ -10,7 +10,9 @@ import Gloss
 
 struct SocialResponse: Gloss.Decodable {
 	
+    let facebook:   String?
+    
 	init?(json: JSON) {
-		
+        self.facebook = "facebook" <~~ json
 	}
 }

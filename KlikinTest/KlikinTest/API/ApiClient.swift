@@ -90,6 +90,12 @@ extension ApiClient {
 	public static func commerces(success: @escaping () -> (), fail: @escaping (ApiError) -> ()) {
 		
 		self.request(endpoint: .commerces, success: { (response) in
+            
+            if let commercesResponse = CommercesResponse(jsonArray: response as [AnyObject]),
+                let commercesResp = commercesResponse.list {
+                print(commercesResp)
+            }
+            
 			success()
 		}) { (error) in
 			fail(error)
