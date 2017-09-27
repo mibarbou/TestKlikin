@@ -51,7 +51,7 @@ class ApiClient {
 	
 	
 	fileprivate static func request(endpoint: ApiClient.Endpoints,
-	                                success: @escaping ([[String: AnyObject]])->(),
+	                                success: @escaping ([AnyObject])->(),
 	                                fail: @escaping (ApiError)->()) {
 		
 		let _ = ApiClient.manager.request(endpoint.path,
@@ -63,7 +63,7 @@ class ApiClient {
 													switch response.result {
 														
 													case .success(let json):
-														if let json = json as? [[String: AnyObject]] {
+														if let json = json as? [AnyObject] {
 															debugPrint(json)
 															success(json)
 														} else {
