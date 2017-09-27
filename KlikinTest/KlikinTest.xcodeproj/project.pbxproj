@@ -36,6 +36,7 @@
 		D070659A1F7AB1B100C39581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D07065991F7AB1B100C39581 /* Assets.xcassets */; };
 		D070659D1F7AB1B100C39581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D070659B1F7AB1B100C39581 /* LaunchScreen.storyboard */; };
 		D07065A81F7AB1B100C39581 /* KlikinTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07065A71F7AB1B100C39581 /* KlikinTestTests.swift */; };
+		D0A0EC3F1F7C3910000C6188 /* CommercesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A0EC3E1F7C3910000C6188 /* CommercesInteractor.swift */; };
 		DF25F3227E51E130C53B5480 /* Pods_KlikinTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A52909C4D896439FB59AC1 /* Pods_KlikinTestTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		D07065A31F7AB1B100C39581 /* KlikinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlikinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07065A71F7AB1B100C39581 /* KlikinTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlikinTestTests.swift; sourceTree = "<group>"; };
 		D07065A91F7AB1B100C39581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0A0EC3E1F7C3910000C6188 /* CommercesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommercesInteractor.swift; sourceTree = "<group>"; };
 		D6A644BF68EF0A5F24F99CCD /* Pods-KlikinTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlikinTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KlikinTestTests/Pods-KlikinTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,10 +231,11 @@
 			isa = PBXGroup;
 			children = (
 				D07065971F7AB1B100C39581 /* AppDelegate.swift */,
+				D0488ED21F7C16AC0014C2CA /* Models */,
+				D0A0EC3D1F7C38E9000C6188 /* Interactors */,
+				AD10803E1F7B873D00F157B4 /* API */,
 				AD1080361F7B7A2700F157B4 /* Controllers */,
 				AD1080391F7B846700F157B4 /* Views */,
-				D0488ED21F7C16AC0014C2CA /* Models */,
-				AD10803E1F7B873D00F157B4 /* API */,
 				D07065991F7AB1B100C39581 /* Assets.xcassets */,
 				D070659B1F7AB1B100C39581 /* LaunchScreen.storyboard */,
 				D070659E1F7AB1B100C39581 /* Info.plist */,
@@ -247,6 +250,14 @@
 				D07065A91F7AB1B100C39581 /* Info.plist */,
 			);
 			path = KlikinTestTests;
+			sourceTree = "<group>";
+		};
+		D0A0EC3D1F7C38E9000C6188 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				D0A0EC3E1F7C3910000C6188 /* CommercesInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		F9BB9097A4D35AE7F49C5F97 /* Frameworks */ = {
@@ -487,6 +498,7 @@
 				AD10803C1F7B848700F157B4 /* CommerceTableViewCell.swift in Sources */,
 				AD499F121F7BD1FC00D9FEBD /* PhotoResponse.swift in Sources */,
 				D0488ECF1F7C098D0014C2CA /* ThumbnailsResponse.swift in Sources */,
+				D0A0EC3F1F7C3910000C6188 /* CommercesInteractor.swift in Sources */,
 				AD499F061F7BCE9C00D9FEBD /* ContactResponse.swift in Sources */,
 				D0488EDE1F7C17AC0014C2CA /* Social.swift in Sources */,
 				D0488EE61F7C18330014C2CA /* Location.swift in Sources */,

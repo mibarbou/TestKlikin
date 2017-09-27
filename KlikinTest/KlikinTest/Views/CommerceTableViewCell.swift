@@ -26,4 +26,9 @@ class CommerceTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configureCellWith(commerce: Commerce) {
+        
+        self.nameLabel.text = commerce.name
+    }
+    
 }
