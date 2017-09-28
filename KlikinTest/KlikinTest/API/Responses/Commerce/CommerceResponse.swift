@@ -20,6 +20,7 @@ struct CommerceResponse: Gloss.Decodable {
     let contact:                ContactResponse?
     let location:               [Double]?
     let photos:                 [PhotoResponse]?
+	let logo:					LogoResponse?
     let features:               [String]?
 	
 	init?(json: JSON) {
@@ -38,6 +39,7 @@ struct CommerceResponse: Gloss.Decodable {
         self.contact = "contact" <~~ json
         self.location = "location" <~~ json
         self.photos = "photos" <~~ json
+		self.logo = "logo" <~~ json
         self.features = "features" <~~ json
 
 	}
@@ -75,6 +77,11 @@ struct CommerceResponse: Gloss.Decodable {
         if let photosResponse = self.photos {
             photos = photosResponse.map{ $0.getPhoto() }
         }
+		
+		var logo: Logo?
+		if let logoResponse = self.logo {
+			logo = logoResponse.getLogo()
+		}
         
         var features = [String]()
         if let featuresResponse = self.features {
@@ -92,6 +99,7 @@ struct CommerceResponse: Gloss.Decodable {
                         contact: contact,
                         location: location,
                         photos: photos,
+                        logo: logo,
                         features: features)
     }
 }

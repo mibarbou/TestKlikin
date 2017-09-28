@@ -7,13 +7,15 @@
 //
 
 import UIKit
-
+import Kingfisher
 
 class CommerceTableViewCell: UITableViewCell {
 
 	static let cellIdentifier = "CommerceCell"
 	
 	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var shortDescriptionLabel: UILabel!
+	@IBOutlet weak var logoImageView: UIImageView!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +31,9 @@ class CommerceTableViewCell: UITableViewCell {
     func configureCellWith(commerce: Commerce) {
         
         self.nameLabel.text = commerce.name
+		self.shortDescriptionLabel.text = commerce.description
+		let logoURL = commerce.logo?.thumbnails?.small
+		self.logoImageView.kf.setImage(with: logoURL)
     }
     
 }

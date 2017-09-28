@@ -38,6 +38,9 @@ class CommercesTableViewController: UITableViewController {
 		
 		let nib = UINib(nibName: "CommerceTableViewCell", bundle: nil)
 		tableView.register(nib, forCellReuseIdentifier: CommerceTableViewCell.cellIdentifier)
+		
+		tableView.estimatedRowHeight = 60.0
+		tableView.rowHeight = UITableViewAutomaticDimension
 	}
 	
 

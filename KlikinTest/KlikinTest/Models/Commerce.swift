@@ -20,5 +20,6 @@ struct Commerce {
     let contact:                Contact?
     let location:               Location?
     let photos:                 [Photo]
+	let logo:					Logo?
     let features:               [String]?
 }
