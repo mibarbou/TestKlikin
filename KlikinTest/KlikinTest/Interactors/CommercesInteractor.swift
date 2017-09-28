@@ -12,6 +12,8 @@ import Foundation
 protocol CommercesInteractorInput :class {
     
     func requestData()
+	func goToDetailAt(index: Int, viewController: CommercesTableViewController)
+	func configure(cell: CommerceTableViewCell, at index: Int) -> CommerceTableViewCell
 }
 
 protocol CommercesInteractorOutput : class {
@@ -31,6 +33,10 @@ class CommercesInteractor: CommercesInteractorInput {
     init(interface: CommercesInteractorOutput) {
         self.interface = interface
     }
+	
+	fileprivate func commerceAt(index: Int) -> Commerce? {
+		return self.allCommerces[index]
+	}
     
     func requestData() {
         
@@ -44,18 +50,26 @@ class CommercesInteractor: CommercesInteractorInput {
             self.interface?.dismissLoading()
         }
     }
-    
+	
     
     func commercesCount() -> Int {
         return self.allCommerces.count
     }
-    
-    
-    func commerceAt(index: Int) -> Commerce? {
-        return self.allCommerces[index]
-    }
-    
-    
+	
+	func goToDetailAt(index: Int, viewController: CommercesTableViewController) {
+		if let commerce = commerceAt(index: index) {
+			let commerceDetailVC = CommerceDetailViewController(commerce: commerce)
+			viewController.navigationController?.pushViewController(commerceDetailVC, animated: true)
+		}
+	}
+	
+	func configure(cell: CommerceTableViewCell, at index: Int) -> CommerceTableViewCell {
+		if let commerce = commerceAt(index: index) {
+			cell.configureCellWith(commerce: commerce)
+		}
+		return cell
+	}
+
 }
 
 

@@ -59,23 +59,14 @@ extension CommercesTableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: CommerceTableViewCell.cellIdentifier, for: indexPath) as! CommerceTableViewCell
 		
-		// Configure the cell...
-        if let commerce = interactor.commerceAt(index: indexPath.row) {
-            cell.configureCellWith(commerce: commerce)
-        }
-		
-		return cell
+		return interactor.configure(cell: cell, at: indexPath.row)
 	}
     
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let selectedCommerce = interactor.commerceAt(index: indexPath.row){
-            let commerceDetailVC = CommerceDetailViewController(commerce: selectedCommerce)
-            self.navigationController?.pushViewController(commerceDetailVC, animated: true)
-        }
-        
+
+		interactor.goToDetailAt(index: indexPath.row, viewController: self)
     }
     
 }
@@ -94,6 +85,8 @@ extension CommercesTableViewController: CommercesInteractorOutput {
     func dismissLoading() {
         HUD.hide(animated: true)
     }
+	
+	
     
     
 }
